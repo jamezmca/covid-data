@@ -1,9 +1,11 @@
 import { useFetchData } from "./hooks/fetchData";
 
 function App() {
-  const url = 'https://covid19.mathdro.id/api/countries'
+  const url = 'https://covid19.mathdro.id/api/countries/'
   const { data, error, loading } = useFetchData(url)
-  console.log(data, error, loading)
+  console.log('looading', loading)
+  console.log('error', error)
+  console.log('data', data)
 
   if (loading) { return <div>Loading...</div> }
 
@@ -11,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      {data && data.reduce((acc, curr) => {
+      {data.reduce((acc, curr) => {
         return acc + ' ' + curr
       }, '')}
     </div>
